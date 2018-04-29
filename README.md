@@ -8,7 +8,9 @@ This project was presented by [Lab 651](http://lab651.com) at the workshop serie
 
 ###LEARNING OBJECTIVE
 
+
 Data Science, Machine Learning & Mobile Application Development!
+
 
 ###HOW THIS FITS INTO IOT
 

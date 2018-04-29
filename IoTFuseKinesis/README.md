@@ -1,0 +1,1 @@
+Lambda function written in Java that will pull records from the Kinesis Stream that you define in the AWS console and store them in InfluxDB. This can be used to show realtime analytics using a tool like Grafana to query on the InfluxDB and give insights in the data being processed off the stream.

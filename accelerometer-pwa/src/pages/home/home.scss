@@ -1,0 +1,17 @@
+page-home {
+  .overlay {
+    position: relative;
+    text-align: center;
+    background-color: aquamarine;
+    font-size: 5em;
+    height: 100%;
+    width:100%;
+  }
+
+  .centered {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+  }
+
+}

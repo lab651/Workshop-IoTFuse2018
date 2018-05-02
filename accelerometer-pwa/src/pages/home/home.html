@@ -1,0 +1,63 @@
+<ion-content padding>
+  <div>
+    <ion-segment [(ngModel)]="mode">
+      <ion-segment-button value="training">
+        Training
+      </ion-segment-button>
+      <ion-segment-button value="guessing">
+        Guessing
+      </ion-segment-button>
+    </ion-segment>
+  </div>
+  <div *ngIf="!overlay">
+    
+    <ion-item>
+      <ion-label stacked>Your Device's Name</ion-label>
+      <ion-input [(ngModel)]="deviceID" type="text"></ion-input>
+    </ion-item>
+
+    <p *ngIf="mode =='training'"> To start recording an event, put the phone on your forehead. Tap anywhere on the screen. You'll hear a sound that indicates
+      recording has started. Nod or shake your head. When you're done, tap the screen again. Answer the question about your
+      movement to send the data.</p>
+
+    <p *ngIf="mode =='guessing'"> Press the start button to send data to the server and see if the model can guess when you're nodding or shaking your
+      head!</p>
+
+    <button *ngIf="data.length === 0" ion-button (click)="startRecording()" color="dark" outline>start recording</button>
+    <button *ngIf="data.length !== 0" ion-button (click)="stopRecording()" color="dark" outline>stop recording</button>
+
+    <p>data points collected: {{data.length}}</p>
+
+    <span ion-text color="danger">data points sent: {{dataSent}} </span>
+
+    <div *ngIf="accelerationG!==undefined">
+      <p>( devicemotion x ) {{accelerationG.x}}</p>
+      <p> ( devicemotion y ) {{accelerationG.y}}</p>
+      <p> ( devicemotion z ) {{accelerationG.z}}</p>
+    </div>
+
+    <div *ngIf="accelerationG===undefined">
+      <p>Acceleration data not available on this browser</p>
+    </div>
+
+    <div *ngIf="orientation!==undefined">
+      <p>( device orientation alpha) {{orientation.alpha}}</p>
+      <p> ( device orientation beta ) {{orientation.beta}}</p>
+      <p> ( device orientation gamma ) {{orientation.gamma}}</p>
+    </div>
+
+    <div *ngIf="orientation===undefined">
+      <p>Orientation not available on this browser</p>
+    </div>
+
+  </div>
+
+  <div class="overlay" *ngIf="overlay" (click)="toggleRecording()">
+    <div class="centered" *ngIf="data.length !== 0">
+      <ion-icon name="pause"></ion-icon>
+    </div>
+    <div class="centered" *ngIf="data.length === 0">
+      <ion-icon name="play"></ion-icon>
+    </div>
+  </div>
+</ion-content>

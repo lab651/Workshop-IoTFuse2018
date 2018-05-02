@@ -1,0 +1,12 @@
+{
+  "name": "sampleAws",
+  "app_id": "",
+  "type": "ionic-angular",
+  "integrations": {},
+  "proxies": [
+    {
+      "path": "/demo",
+      "proxyUrl": "https://p7uk7d6b6k.execute-api.us-east-1.amazonaws.com/demo"
+    }
+  ]
+}
